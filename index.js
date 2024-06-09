@@ -58,7 +58,7 @@ function getSecretNum(level) {
     { length: level },
     () => numbers.splice(Math.floor(Math.random() * numbers.length), 1)[0]
   );
-  console.log(secretNum);
+  console.log(secretNum); // einkommentieren um secret-number zu sehen
 }
 
 /////////// ask for level:
@@ -240,57 +240,3 @@ Do you want to play again?
 }
 
 startGame();
-
-/////////////////////////////////////////////////////////////
-// ALT
-// function startGame() {
-//   switch (startMenu.toUpperCase()) {
-//     case "P":
-//       askForLevel();
-//       getSecretNum(level);
-//       let guessed = false;
-//       while (!guessed) {
-//         askForGuessing();
-//         guessed = checkCowsandBulls(guessingArray);
-//       }
-//       let win = congratulationsTemplate;
-//       console.log(
-//         `${win}
-// You found the secret number: ${secretNum.join("")}
-
-//         `
-//       );
-//       let playAgain = readlineSync
-//         .question(
-//           `
-//       Do you want to play again?
-//       Press [Y]es to start the next game.
-//       Press [E]xit to leave.
-//       `
-//         )
-//         .toUpperCase();
-//       if (playAgain === "Y") {
-//         startGame();
-//       } else if (playAgain === "E") {
-//         console.log(`Bye, ${name}!`);
-//       } else {
-//       }
-//       console.log(
-//         `Something went wrong with your input. Please press [Y]es to start the next game or [E]xit to leave.`
-//       );
-//       break;
-//     case "E":
-//       console.log(`Bye!`);
-//       return;
-//     default:
-//       console.log(
-//         `Something went wrong with your input. Please press p for play and e to exit.`
-//       );
-//       break;
-//   }
-// }
-
-// startGame();
-
-////////////////
-////////////////
