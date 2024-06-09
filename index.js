@@ -58,7 +58,7 @@ function getSecretNum(level) {
     { length: level },
     () => numbers.splice(Math.floor(Math.random() * numbers.length), 1)[0]
   );
-  console.log(secretNum); // einkommentieren um secret-number zu sehen
+  // console.log(secretNum); // einkommentieren um secret-number zu sehen
 }
 
 /////////// ask for level:
