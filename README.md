@@ -1,93 +1,61 @@
 # Bulls and Cows
 
-In this project we will build a two player game that is called **Bulls and Cows**.
+## Introduction
 
-![cow icon](assets/cow.svg) ![bull icon](assets/bull.svg)
+Welcome to "Bulls and Cows", a captivating game of deduction that combines strategy and chance. Developed with JavaScript, this game runs directly in your console and offers three levels of difficulty: Easy, Medium, and Difficult. Regardless of your experience level, "Bulls and Cows" promises an engaging and intellectually stimulating gaming experience.
 
-## Rules
+## Prerequisites
 
-One of the players comes up with a secret number, and the other player tries to guess it.
+Before you can start playing, you need to install `readline-sync`. This package is essential for the game's interaction with the console. To install it, open your terminal and run:
+bash npm install readline-sync
 
-The secret number must consist of 4 digits and each digit must be **unique**.
+Ensure you have Node.js installed on your system. If you haven't installed Node.js yet, you can download it from [Node.js official website](https://nodejs.org/).
 
-For example:
+## Getting Started
 
-- `1112` would **not** be an acceptable secret number
-- `1234` on the other hand is an acceptable value for the secret number, since each digit is unique
+With `readline-sync` installed, follow these steps to launch the game:
 
-After each guess, the player will get a hint to help them guess better next time around.
+1. Navigate to the directory where you downloaded the game files.
+2. Start the game by running `node index.js`.
 
-The hint tells the player how many bulls and how many cows there were. What are bulls and cows?
+## Gameplay
 
-- If there are any matching digits and they are in their right positions, they are counted as *"bulls"*.
-- If in different positions, they are counted as *"cows"*.
+Your adventure begins with a personalized greeting message. You'll be asked to input your name; if you prefer not to, you'll be identified as "Guest" throughout the game.
 
-For example, with a secret number `4271`:
+### Levels
 
->
-    Player's try: 1234
+"Bulls and Cows" includes three levels of increasing difficulty:
 
-    Hint: 1 bull and 2 cows
+- **Easy**: Ideal for newcomers or those seeking a leisurely gaming session.
+- **Medium**: Offers a steeper challenge, suitable for intermediate players.
+- **Difficult**: Designed for experienced players, this level tests your guessing abilities to the fullest.
 
+### Rules
 
-How did we arrive at one bull and two cows?
-The bull is the number `2` as it is in the right position.
+The objective is to accurately predict a four-digit number composed exclusively of unique digits. Each incorrect guess receives feedback indicating how close you are to the correct answer:
 
-The cows are `4` and `1`, as they exist in the secret number but they are not in the right position.
+- **Bulls**: Represents digits that are present in the correct position and match the guessed digit.
+- **Cows**: Indicates digits that are part of the secret number but positioned incorrectly.
 
-Do **not** disclose to the user which digit is a cow and which one is bull, just how many there are (if any).
+For instance, if the secret number is `1234` and you guess `1122`, you'd receive 1 bull (for the `2`) and 2 cows (for the `1`s).
 
-There is no limit on the number of guesses - guessing continues until the player figures out the other player's secret number.
+### Progress Tracking
 
-Once the player has guessed the secret number correctly, display a message to congratulate them.
+Each round concludes with a summary of your performance, detailing:
 
-## Getting the input from the terminal 
+- The level played.
+- The current game number (e.g., 1st game, 2nd game, etc.).
+- The total number of attempts made thus far.
 
-Our game will be player vs computer. The computer will come up with a secret number and the player will be trying to guess it.
+Upon completion, you'll be addressed as either "Guest" or by your chosen name, signifying the conclusion of your gaming session.
 
-To gather the player's input we will use an npm package called [`prompt-sync`](https://github.com/heapwolf/prompt-sync).
+## Conclusion
 
-We can use the package like so:
+Whether you're new to "Bulls and Cows" or a returning enthusiast, we hope you find the strategic challenges and engaging gameplay rewarding. Enjoy your guessing journey, and may fortune favor your efforts!
 
-```js
-// Import package
-const prompt = require('prompt-sync')({ sigint: true });
-// Use package
-let name = prompt('What is your name? '); // Note there is a space at the end, so the input does not stick to the question
-```
+## Contact
 
-Then the variable name will contain the value that the user entered in the terminal.
+Should you have any questions, suggestions, or need assistance, feel free to reach out.
 
-Make sure to validate the input to a certain extent. For example:
-
-- it must exist (the user can simply hit enter, but we should not accept this as a valid guess)
-- it must be 4 digits
-- each of the 4 digits must be unique
-
-## Extra
-
-Let's make this game even better!
-
-If you have the core of the game up and running, 
-here are some cool features you can add next:
-
-- __Number of attempts__ to guess the secret number: There will be no limit of guessing, but we can keep track of how many attempts the player needed to solve the puzzle.
-- __Randomized message__ every time the user has no bulls and no cows: Instead of always showing the same message, let's create a collection of fun messages every time the guess hits no digits.
-- __User's name__: Let's get the player's name, if they want to share. You can then use the name in the congratulations and  failure messages and hints. If no name is provided, you can use a default like `Player` or `Stranger`. 
-- __Another round__: Once the player has guessed the number correctly, you can ask them to play another round if they want to and restart the game.
-- __Another round stats__: If the user plays multiple rounds, you display the total of games played and the number of attempts for each game.
-- __Maximum number of attempts__: If the user cannot guess in N attemps, they lose the game.
-- __Configurable game level__: The user can choose if they want to play easy or difficult mode. In easy mode, for example, there could be no lmit on the number of attempts, while the difficult level could have a limit.
-
-All the extras are only **optional** - add one or two if you want to have a bigger challenge, but only **after** the core of the game is working. Don't forget to push your code to version control, so you have a working copy to go back to if you need to.
-
-## Deadline
-
-You have ~3,5 days to make the game work.
-
-## Deliverables
-
-A repository containing your code.
-
-**Happy coding!** 🤓
-# BullsAndCows
+## Preview
+![preview](preview/preview.png)
